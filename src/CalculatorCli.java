@@ -61,10 +61,10 @@ public class CalculatorCli{
    }
 
    public static void main(String[] args){
-
+      //Cria uma lista
       List<String> elements = new LinkedList<>();
       double result = 0.0;
-
+      //Verifica e não salva os " " na lista
       for(int i = 0; i < args.length; i++){
 
          if(!args[i].isBlank()){
@@ -73,7 +73,8 @@ public class CalculatorCli{
          		        
 	}
       }
-
+      //Percorre a lista e compara os elementos com os 
+      //operadores do Enum e calcula
       for(int i = 0; i < elements.size(); i++){
 
          for(Operator x : Operator.values()){
