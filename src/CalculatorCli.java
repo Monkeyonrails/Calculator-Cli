@@ -1,11 +1,11 @@
 import java.util.*;
 
 public class CalculatorCli{
-   
+  //Enumera os operadores 
    enum Operator{
 
       SUM('+'){
-
+         //define o corpo do makeCalc
          @Override
        	 double makeCalc(double x, double y){
 
@@ -14,7 +14,7 @@ public class CalculatorCli{
 	 }
 
       }, SUBTRACTION('-'){
-
+         //define o corpo do makeCalc
          @Override
 	 double makeCalc(double x, double y){
 
@@ -23,7 +23,7 @@ public class CalculatorCli{
 	 }
 
       }, MULTIPLICATION('?'){
-
+         //define o corpo do makeCalc
          @Override
 	 double makeCalc(double x, double y){
 
@@ -32,7 +32,7 @@ public class CalculatorCli{
 	 }
 
       }, DIVISION('/'){
-
+         //define o corpo do makeCalc
          @Override
 	 double makeCalc(double x, double y){
 
@@ -43,15 +43,17 @@ public class CalculatorCli{
       };
  
       final char operator;
-
+      
+      //metodo sem corpo
       abstract double makeCalc(double x, double y);
-
+      
+      //Atribui a variavel a cada operador do enum
       Operator(char operator){
 
          this.operator = operator;
 
       }
-
+      //Retorna o valor String do operador
       String getOperator(){
 
          return String.valueOf(operator);
@@ -73,13 +75,13 @@ public class CalculatorCli{
          		        
 	}
       }
-      //Percorre a lista e compara os elementos com os 
-      //operadores do Enum e calcula
 
-         for(Operator x : Operator.values()){
-	    for(int i = 0; i < elements.size(); i++){	
-
-            if(elements.get(i).equals(x.getOperator())){
+      //Percorre os valores do enum Operator   
+      for(Operator x : Operator.values()){
+         //Percorre os valores da List elements
+	 for(int i = 0; i < elements.size(); i++){	
+         //verifica se um elemento da lista é igual a um operador e realiza o calculo
+         if(elements.get(i).equals(x.getOperator())){
 
                double argX = Double.parseDouble(elements.get(i-1));
 	       double argY = Double.parseDouble(elements.get(i+1));
@@ -88,7 +90,7 @@ public class CalculatorCli{
 	    }
 	 }
       }
-
+      //Imprime o resultado
       System.out.println(result);
 
    }
