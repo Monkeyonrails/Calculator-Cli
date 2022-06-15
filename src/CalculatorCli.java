@@ -22,7 +22,7 @@ public class CalculatorCli{
 
 	 }
 
-      }, MULTIPLICATION('*'){
+      }, MULTIPLICATION('?'){
 
          @Override
 	 double makeCalc(double x, double y){
@@ -75,9 +75,9 @@ public class CalculatorCli{
       }
       //Percorre a lista e compara os elementos com os 
       //operadores do Enum e calcula
-      for(int i = 0; i < elements.size(); i++){
 
          for(Operator x : Operator.values()){
+	    for(int i = 0; i < elements.size(); i++){	
 
             if(elements.get(i).equals(x.getOperator())){
 
