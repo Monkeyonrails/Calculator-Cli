@@ -66,14 +66,28 @@ public class CalculatorCli{
       //Cria uma lista
       List<String> elements = new LinkedList<>();
       double result = 0.0;
-      //Verifica e não salva os " " na lista
-      for(int i = 0; i < args.length; i++){
 
-         if(!args[i].isBlank()){
+      if(args.length(1)){
+
+	for(Operator x : Operator.values()){
+         //Percorre os valores da List elements
+         for(int i = 0; i < elements.size(); i++){               //verifica se um argumento é operador
+	 //e realiza o calculo
+         if(args[0].charAt(i).equals(x.getOperator())){
+                                                                       double argX = Double.parseDouble(args[0].charAt(i-1));                                                            double argY = Double.parseDouble(args[0].charAt(i+1));
+               result += x.makeCalc(argX, argY);
+
+            }
+         }
+      }      
+         
+      }
+
+      //Salva os argumentos na lista
+      for(int i = 0; i < args.length; i++){
 
            elements.add(args[i]);
          		        
-	}
       }
 
       //Percorre os valores do enum Operator   
